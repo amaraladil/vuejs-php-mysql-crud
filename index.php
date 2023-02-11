@@ -46,37 +46,35 @@
             </div>
             <div class="card-footer"> Created by Amar Al-Adil </div>
         </div>
-        <div v-if="myModel">
-            <transition name="model">
-                <div class="modal-mask">
-                    <div class="modal-wrapper">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">{{ dynamicTitle }}</h4>
-                                    <button type="button" class="close" @click="myModel=false"><span aria-hidden="true">&times;</span></button>  
-                                </div>
-                                <div class="modal-body">
-                                    <form v-on:submit.prevent >
-                                        <div class="form-group">
-                                            <label>Category Name</label>
-                                            <input type="text" class="form-control" v-model="app.options.find(val => val.value == app.activeCategory).text" disabled/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Enter Document Name</label>
-                                            <input type="text" class="form-control" v-model="formDocumentName" />
-                                        </div>
-                                        <div>
-                                            <input type="submit" class="btn btn-success btn-sm btn-block" v-model="actionButton" @click="submitDocument" />
-                                        </div>
-                                    </form>
-                                </div>
+        <transition name="model">
+            <div v-if="myModel" class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">{{ dynamicTitle }}</h4>
+                                <button type="button" class="close" @click="myModel=false"><span aria-hidden="true">&times;</span></button>  
+                            </div>
+                            <div class="modal-body">
+                                <form v-on:submit.prevent >
+                                    <div class="form-group">
+                                        <label>Category Name</label>
+                                        <input type="text" class="form-control" v-model="app.options.find(val => val.value == app.activeCategory).text" disabled/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Enter Document Name</label>
+                                        <input type="text" class="form-control" v-model="formDocumentName" />
+                                    </div>
+                                    <div>
+                                        <input type="submit" class="btn btn-success btn-sm btn-block" v-model="actionButton" @click="submitDocument" />
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </transition>
-        </div>
+            </div>
+        </transition>
     </div>
     <script src="js/app.js"></script>
 </body>
